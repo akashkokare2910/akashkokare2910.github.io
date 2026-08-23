@@ -3,16 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Akash Kokare — AI Engineer · Applied AI · Agentic Systems</title>
+<title>Akash Kokare · AI Engineer · Applied AI · Agentic Systems</title>
 <meta name="description" content="AI Engineer building production AI systems, agent reliability infrastructure, MCP integrations, and developer tooling.">
 <link rel="canonical" href="https://akashkokare2910.github.io/">
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Akash Kokare — AI Engineer · Applied AI · Agentic Systems">
+<meta property="og:title" content="Akash Kokare · AI Engineer · Applied AI · Agentic Systems">
 <meta property="og:description" content="AI Engineer building production AI systems, agent reliability infrastructure, MCP integrations, and developer tooling.">
 <meta property="og:url" content="https://akashkokare2910.github.io/">
 <meta property="og:image" content="https://akashkokare2910.github.io/public/akash-kokare.jpg">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,14 +28,14 @@
 
 <div class="intro">
   <div>
-    <img class="portrait" src="public/akash-kokare.jpg" width="300" height="374" alt="Portrait of Akash Kokare">
+    <img class="portrait" src="public/akash-kokare.jpg?v=2" width="300" height="374" alt="Portrait of Akash Kokare">
     <nav class="linkrow" aria-label="Profile links">
       <a href="public/Akash_Kokare_AI_Engineer.pdf">Resume</a><span>·</span><a href="mailto:akashkokare.in@gmail.com">Email</a><span>·</span><a href="https://github.com/akashkokare2910">GitHub</a><span>·</span><a href="https://linkedin.com/in/akash-kokare13bz">LinkedIn</a>
     </nav>
   </div>
   <div class="bio">
     <p>I am an AI Engineer at Birla AI Labs, part of the Office of Ananya Birla at Aditya Birla Group. My work sits between applied AI, product engineering, and infrastructure: production AI platforms, agentic workflows, time-series foundation-model systems, MCP integrations, and developer tooling for reliability and evaluation.</p>
-    <p>Most of my current work is about making AI systems behave like dependable software. Not just getting a model to answer, but testing tool use, execution paths, state changes, regressions, and failure modes — and putting that testing where it belongs, in CI, before a change ships.</p>
+    <p>Most of my current work is about making AI systems behave like dependable software. Not just getting a model to answer, but testing tool use, execution paths, state changes, regressions, and failure modes, then putting that testing where it belongs: in CI, before a change ships.</p>
     <p>Before this I worked on large-scale document and search systems, including Elasticsearch-backed platforms over millions of patent records and high-throughput ingestion pipelines.</p>
   </div>
 </div>
@@ -55,7 +57,7 @@
   <h2>Featured engineering work</h2>
 
   <article class="work">
-    <h3>EvalForge — AI Agent Reliability &amp; Evaluation Platform</h3>
+    <h3>EvalForge<span class="sep">·</span>AI Agent Reliability &amp; Evaluation Platform</h3>
     <p class="problem">An agent can return a convincing final answer and still have called the wrong tool, passed the wrong argument, or left the world in the wrong state.</p>
     <p>EvalForge evaluates tool selection, tool arguments, execution trajectory and final environment state, compares a candidate against a promoted baseline, and fails the build when a quality gate breaks. It ships a Python SDK, a CLI and a GitHub Action, over a multi-tenant FastAPI and PostgreSQL backend with workspace tenancy, scoped API tokens and encrypted BYOK OpenAI credentials. The product surface is Next.js.</p>
     <p class="links"><a href="https://evalforge-one.vercel.app">Live product</a><span>·</span><a href="https://evalforge-one.vercel.app/app">Public read-only showcase</a></p>
@@ -110,14 +112,14 @@
 
     <figure>
       <img src="public/evalforge-quality-gate.png" alt="EvalForge experiment comparison showing a DO NOT SHIP banner, a quality gates table with two failing gates, and baseline versus candidate metric changes" loading="lazy">
-      <figcaption>A candidate version improves task success by 65 points — and the gate still fails, because two cases regressed. Aggregate improvement does not mean a change is safe to ship.</figcaption>
+      <figcaption>A candidate version improves task success by 65 points, and the gate still fails, because two cases regressed. Aggregate improvement does not mean a change is safe to ship.</figcaption>
     </figure>
   </article>
 
   <article class="work">
-    <h3>MCPLint — Behavioral Reliability Testing for MCP Agent Tools</h3>
+    <h3>MCPLint<span class="sep">·</span>Behavioral Reliability Testing for MCP Agent Tools</h3>
     <p class="problem">JSON Schema validates a tool call after the model has chosen the tool. MCPLint analyses whether the descriptions and schemas make the right tool distinguishable before selection.</p>
-    <p>Fifteen deterministic lint rules and a cross-tool ambiguity engine produce an explainable 0–100 score with no LLM key required. ContractLab extends it into behavioural contracts, adversarial benchmark generation and mutation testing that checks descriptions actually carry the distinctions they claim. SARIF, HTML and JSON reporters make it gate a pipeline. Published on PyPI, backed by 200+ tests.</p>
+    <p>Fifteen deterministic lint rules and a cross-tool ambiguity engine produce an explainable 0 to 100 score with no LLM key required. ContractLab extends it into behavioural contracts, adversarial benchmark generation and mutation testing that checks descriptions actually carry the distinctions they claim. SARIF, HTML and JSON reporters make it gate a pipeline. Published on PyPI, backed by 200+ tests.</p>
     <p class="links"><a href="https://github.com/akashkokare2910/mcplint">GitHub</a><span>·</span><a href="https://pypi.org/project/mcplint-cli/">PyPI</a></p>
   </article>
 
@@ -131,8 +133,8 @@
 
 <section id="role">
   <h2>Current role</h2>
-  <h3>AI Engineer — Birla AI Labs</h3>
-  <p class="sub">Office of Ananya Birla · Aditya Birla Group · Mumbai, India · Feb 2025 – present</p>
+  <h3>AI Engineer<span class="sep">·</span>Birla AI Labs</h3>
+  <p class="sub">Office of Ananya Birla · Aditya Birla Group · Mumbai, India · Feb 2025 to present</p>
   <ul class="plain">
     <li>Production AI platforms and product delivery across FastAPI, Next.js, PostgreSQL/Supabase and AWS</li>
     <li>Time-series foundation-model inference and forecasting systems</li>
@@ -145,23 +147,23 @@
   <h2>Engineering journey</h2>
   <div class="timeline">
     <div class="role">
-      <span class="when">2025 — Present</span>
+      <span class="when">2025 to now</span>
       <div>
-        <strong>AI Engineer</strong> · Birla AI Labs
+        <strong>AI Engineer</strong>, Birla AI Labs
         <p>Applied AI platforms, forecasting infrastructure and agent tooling in production.</p>
       </div>
     </div>
     <div class="role">
-      <span class="when">2022 — 2024</span>
+      <span class="when">2022 to 2024</span>
       <div>
-        <strong>Software Engineer</strong> · ResearchWire Knowledge Solutions
+        <strong>Software Engineer</strong>, ResearchWire Knowledge Solutions
         <p>Search and data-pipeline engineering over large patent document corpora.</p>
       </div>
     </div>
     <div class="role">
       <span class="when">2021</span>
       <div>
-        <strong>Machine Learning Intern</strong> · Regex Software Services
+        <strong>Machine Learning Intern</strong>, Regex Software Services
         <p>Transfer-learning image classification.</p>
       </div>
     </div>
@@ -204,16 +206,16 @@
 
 <section id="oss">
   <h2>Open source &amp; developer tooling</h2>
-  <p><strong>MCPLint</strong> — open-source CLI on PyPI. Deterministic static analysis for MCP tool contracts, SARIF output for CI, released through GitHub Actions with Trusted Publishing and signed attestations. <a href="https://github.com/akashkokare2910/mcplint">GitHub</a> · <a href="https://pypi.org/project/mcplint-cli/">PyPI</a></p>
-  <p><strong>EvalForge</strong> — publicly deployed with a read-only showcase, and ships a Python SDK, CLI and GitHub Action. The repository is currently private.</p>
+  <p><strong>MCPLint</strong>, an open-source CLI on PyPI. Deterministic static analysis for MCP tool contracts, SARIF output for CI, released through GitHub Actions with Trusted Publishing and signed attestations. <a href="https://github.com/akashkokare2910/mcplint">GitHub</a> · <a href="https://pypi.org/project/mcplint-cli/">PyPI</a></p>
+  <p><strong>EvalForge</strong> is publicly deployed with a read-only showcase, and ships a Python SDK, CLI and GitHub Action. The repository is currently private.</p>
 </section>
 
 <section id="projects">
   <h2>Selected projects</h2>
   <ul class="plain">
-    <li><strong>EvalForge</strong> — AI agent reliability and evaluation platform. <a href="https://evalforge-one.vercel.app">Live</a></li>
-    <li><strong>MCPLint</strong> — behavioural reliability testing for MCP agent tools. <a href="https://github.com/akashkokare2910/mcplint">GitHub</a></li>
-    <li><strong>RAG-Powered Document Assistant</strong> — document ingestion, chunking, embedding and retrieval over pgvector, with semantic search and MMR re-ranking, behind a FastAPI and Next.js stack.</li>
+    <li><strong>EvalForge</strong>. AI agent reliability and evaluation platform. <a href="https://evalforge-one.vercel.app">Live</a></li>
+    <li><strong>MCPLint</strong>. Behavioural reliability testing for MCP agent tools. <a href="https://github.com/akashkokare2910/mcplint">GitHub</a></li>
+    <li><strong>RAG Document Assistant</strong>. Document ingestion, chunking, embedding and retrieval over pgvector, with semantic search and MMR re-ranking, behind a FastAPI and Next.js stack.</li>
   </ul>
 </section>
 
