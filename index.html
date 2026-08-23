@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akash Kokare — AI Engineer · Applied AI · Agentic Systems</title>
+<meta name="description" content="AI Engineer building production AI systems, agent reliability infrastructure, MCP integrations, and developer tooling.">
+<link rel="canonical" href="https://akashkokare2910.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Akash Kokare — AI Engineer · Applied AI · Agentic Systems">
+<meta property="og:description" content="AI Engineer building production AI systems, agent reliability infrastructure, MCP integrations, and developer tooling.">
+<meta property="og:url" content="https://akashkokare2910.github.io/">
+<meta property="og:image" content="https://akashkokare2910.github.io/public/akash-kokare.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Akash Kokare</h1>
+  <p class="title">AI Engineer · Applied AI · Agentic Systems</p>
+  <p class="tagline">Building production AI systems, agent reliability infrastructure, and developer tooling.</p>
+</header>
+
+<div class="intro">
+  <div>
+    <img class="portrait" src="public/akash-kokare.jpg" width="300" height="374" alt="Portrait of Akash Kokare">
+    <nav class="linkrow" aria-label="Profile links">
+      <a href="public/Akash_Kokare_AI_Engineer.pdf">Resume</a><span>·</span><a href="mailto:akashkokare.in@gmail.com">Email</a><span>·</span><a href="https://github.com/akashkokare2910">GitHub</a><span>·</span><a href="https://linkedin.com/in/akash-kokare13bz">LinkedIn</a>
+    </nav>
+  </div>
+  <div class="bio">
+    <p>I am an AI Engineer at Birla AI Labs, part of the Office of Ananya Birla at Aditya Birla Group. My work sits between applied AI, product engineering, and infrastructure: production AI platforms, agentic workflows, time-series foundation-model systems, MCP integrations, and developer tooling for reliability and evaluation.</p>
+    <p>Most of my current work is about making AI systems behave like dependable software. Not just getting a model to answer, but testing tool use, execution paths, state changes, regressions, and failure modes — and putting that testing where it belongs, in CI, before a change ships.</p>
+    <p>Before this I worked on large-scale document and search systems, including Elasticsearch-backed platforms over millions of patent records and high-throughput ingestion pipelines.</p>
+  </div>
+</div>
+
+<hr>
+
+<section id="news">
+  <h2>News</h2>
+  <ul class="news">
+    <li><span class="date">08 / 2026</span><span>Added multi-tenant authorization, API-token authentication, encrypted BYOK credentials and real-user authoring flows to EvalForge.</span></li>
+    <li><span class="date">08 / 2026</span><span>Completed a manually audited 20-case behavioural evaluation pilot across <code>gpt-4o</code> and <code>gpt-4o-mini</code>.</span></li>
+    <li><span class="date">08 / 2026</span><span>Built and deployed <a href="https://evalforge-one.vercel.app">EvalForge</a>, an AI-agent reliability and CI evaluation platform.</span></li>
+    <li><span class="date">07 / 2026</span><span>Published <a href="https://pypi.org/project/mcplint-cli/">MCPLint</a>, a behavioural reliability CLI for MCP tool design, to PyPI.</span></li>
+    <li><span class="date">02 / 2025</span><span>Joined Birla AI Labs as an AI Engineer, building applied AI and forecasting systems on time-series foundation models.</span></li>
+  </ul>
+</section>
+
+<section id="work">
+  <h2>Featured engineering work</h2>
+
+  <article class="work">
+    <h3>EvalForge — AI Agent Reliability &amp; Evaluation Platform</h3>
+    <p class="problem">An agent can return a convincing final answer and still have called the wrong tool, passed the wrong argument, or left the world in the wrong state.</p>
+    <p>EvalForge evaluates tool selection, tool arguments, execution trajectory and final environment state, compares a candidate against a promoted baseline, and fails the build when a quality gate breaks. It ships a Python SDK, a CLI and a GitHub Action, over a multi-tenant FastAPI and PostgreSQL backend with workspace tenancy, scoped API tokens and encrypted BYOK OpenAI credentials. The product surface is Next.js.</p>
+    <p class="links"><a href="https://evalforge-one.vercel.app">Live product</a><span>·</span><a href="https://evalforge-one.vercel.app/app">Public read-only showcase</a></p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 856 236" role="img" aria-labelledby="archTitle archDesc" xmlns="http://www.w3.org/2000/svg">
+        <title id="archTitle">EvalForge architecture</title>
+        <desc id="archDesc">An agent under test is traced by the Python SDK and CLI, which send traces to the FastAPI service. The experiment runner calls the OpenAI provider using the workspace key and passes results to the evaluators. Evaluators write to PostgreSQL, which feeds the Next.js dashboard, and to quality gates, which report to GitHub Actions.</desc>
+        <g fill="none" stroke="#c9ced7" stroke-width="1.5">
+          <rect x="1" y="14" width="126" height="42" rx="5"/>
+          <rect x="1" y="90" width="126" height="42" rx="5"/>
+          <rect x="181" y="90" width="126" height="42" rx="5"/>
+          <rect x="361" y="90" width="126" height="42" rx="5"/>
+          <rect x="361" y="14" width="126" height="42" rx="5"/>
+          <rect x="541" y="90" width="126" height="42" rx="5"/>
+          <rect x="541" y="14" width="126" height="42" rx="5"/>
+          <rect x="541" y="166" width="126" height="42" rx="5"/>
+        </g>
+        <g fill="#16181d" font-family="Inter, system-ui, Arial, sans-serif" font-size="13" text-anchor="middle">
+          <text x="64" y="40">Agent under test</text>
+          <text x="64" y="116">Python SDK / CLI</text>
+          <text x="244" y="116">FastAPI</text>
+          <text x="424" y="110">Experiment</text>
+          <text x="424" y="126">runner</text>
+          <text x="424" y="40">OpenAI provider</text>
+          <text x="604" y="116">Evaluators</text>
+          <text x="604" y="40">PostgreSQL</text>
+          <text x="604" y="184">Quality gates</text>
+        </g>
+        <g stroke="#8a92a0" stroke-width="1.5" fill="none" marker-end="url(#a)">
+          <path d="M64 56 L64 90"/>
+          <path d="M127 111 L181 111"/>
+          <path d="M307 111 L361 111"/>
+          <path d="M424 90 L424 56"/>
+          <path d="M487 111 L541 111"/>
+          <path d="M604 90 L604 56"/>
+          <path d="M604 132 L604 166"/>
+        </g>
+        <defs>
+          <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#8a92a0"/>
+          </marker>
+        </defs>
+        <g fill="#5b6270" font-family="Inter, system-ui, Arial, sans-serif" font-size="12" text-anchor="start">
+          <text x="680" y="40">→ Next.js dashboard</text>
+          <text x="680" y="192">→ GitHub Actions</text>
+        </g>
+      </svg>
+    </div>
+
+    <p class="note">In one real <code>gpt-4o</code> run, the agent was asked to refund order <code>#9999</code>, which did not exist. It listed the customer's orders, refunded a different order for $89.50, and then reported that <code>#9999</code> had been refunded successfully. Final-answer scoring would not reveal that. The tool trajectory and the final environment state did.</p>
+
+    <figure>
+      <img src="public/evalforge-quality-gate.png" alt="EvalForge experiment comparison showing a DO NOT SHIP banner, a quality gates table with two failing gates, and baseline versus candidate metric changes" loading="lazy">
+      <figcaption>A candidate version improves task success by 65 points — and the gate still fails, because two cases regressed. Aggregate improvement does not mean a change is safe to ship.</figcaption>
+    </figure>
+  </article>
+
+  <article class="work">
+    <h3>MCPLint — Behavioral Reliability Testing for MCP Agent Tools</h3>
+    <p class="problem">JSON Schema validates a tool call after the model has chosen the tool. MCPLint analyses whether the descriptions and schemas make the right tool distinguishable before selection.</p>
+    <p>Fifteen deterministic lint rules and a cross-tool ambiguity engine produce an explainable 0–100 score with no LLM key required. ContractLab extends it into behavioural contracts, adversarial benchmark generation and mutation testing that checks descriptions actually carry the distinctions they claim. SARIF, HTML and JSON reporters make it gate a pipeline. Published on PyPI, backed by 200+ tests.</p>
+    <p class="links"><a href="https://github.com/akashkokare2910/mcplint">GitHub</a><span>·</span><a href="https://pypi.org/project/mcplint-cli/">PyPI</a></p>
+  </article>
+
+  <article class="work">
+    <h3>Applied AI / Forecasting Systems</h3>
+    <p class="problem">Production forecasting built on time-series foundation models, at Birla AI Labs.</p>
+    <p>Server-side inference across seven zero-shot foundation models behind a multi-tenant forecasting API, with per-organisation quotas, rate limiting and a Redis-backed async job queue for long-running inference. An MCP server exposes forecasting workflows to Claude and ChatGPT, and a forecast agent answers natural-language questions over model output. Underneath sits the data layer: ingestion, validation, feature engineering and dataset versioning, deployed on AWS.</p>
+    <p class="links"><a href="https://oab-forecasting.com">oab-forecasting.com</a></p>
+  </article>
+</section>
+
+<section id="role">
+  <h2>Current role</h2>
+  <h3>AI Engineer — Birla AI Labs</h3>
+  <p class="sub">Office of Ananya Birla · Aditya Birla Group · Mumbai, India · Feb 2025 – present</p>
+  <ul class="plain">
+    <li>Production AI platforms and product delivery across FastAPI, Next.js, PostgreSQL/Supabase and AWS</li>
+    <li>Time-series foundation-model inference and forecasting systems</li>
+    <li>Agentic workflows and MCP interfaces over model output</li>
+    <li>AI platform engineering: multi-tenant APIs, async execution, Dockerised CI/CD to AWS</li>
+  </ul>
+</section>
+
+<section id="journey">
+  <h2>Engineering journey</h2>
+  <div class="timeline">
+    <div class="role">
+      <span class="when">2025 — Present</span>
+      <div>
+        <strong>AI Engineer</strong> · Birla AI Labs
+        <p>Applied AI platforms, forecasting infrastructure and agent tooling in production.</p>
+      </div>
+    </div>
+    <div class="role">
+      <span class="when">2022 — 2024</span>
+      <div>
+        <strong>Software Engineer</strong> · ResearchWire Knowledge Solutions
+        <p>Search and data-pipeline engineering over large patent document corpora.</p>
+      </div>
+    </div>
+    <div class="role">
+      <span class="when">2021</span>
+      <div>
+        <strong>Machine Learning Intern</strong> · Regex Software Services
+        <p>Transfer-learning image classification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <h2>Selected engineering impact</h2>
+  <ul class="plain">
+    <li>Built multi-tenant AI APIs with authentication, per-organisation quotas, rate limiting and Redis-backed asynchronous execution with idempotency keys</li>
+    <li>Built AI-agent evaluation infrastructure that tests tool use, execution trajectories and state mutations rather than final text</li>
+    <li>Built MCP integrations exposing AI workflows to Claude and ChatGPT</li>
+    <li>Published Python developer tooling to PyPI with Trusted Publishing, approval-gated CI/CD and signed release attestations</li>
+    <li>Improved patent-search and document-processing systems, raising search efficiency and result accuracy by 30%</li>
+    <li>Cut an XML-to-JSON conversion pipeline's processing time by 50%, then re-architected it for 10x higher throughput</li>
+  </ul>
+</section>
+
+<section id="principles">
+  <h2>How I think about AI engineering</h2>
+  <ol class="principles">
+    <li><strong>Evaluation is part of the product, not an afterthought.</strong> If you cannot tell whether a change helped, you are guessing rather than engineering.</li>
+    <li><strong>Agent correctness is about actions and state, not just text.</strong> The final message is the least reliable evidence of what actually happened.</li>
+    <li><strong>Deterministic checks should carry as much ground truth as possible before reaching for an LLM judge.</strong> A rule that always agrees with itself is worth more than a model that mostly does.</li>
+    <li><strong>AI systems still need ordinary software engineering.</strong> Auth, tenancy isolation, idempotency, observability, failure isolation and CI do not become optional because there is a model in the loop.</li>
+  </ol>
+</section>
+
+<section id="focus">
+  <h2>Current focus</h2>
+  <ul class="plain">
+    <li>AI agent evaluation and reliability</li>
+    <li>Tool-using agents and behavioural testing</li>
+    <li>MCP and agent interoperability</li>
+    <li>Applied AI platform engineering</li>
+    <li>Time-series foundation models</li>
+    <li>Production AI infrastructure</li>
+  </ul>
+</section>
+
+<section id="oss">
+  <h2>Open source &amp; developer tooling</h2>
+  <p><strong>MCPLint</strong> — open-source CLI on PyPI. Deterministic static analysis for MCP tool contracts, SARIF output for CI, released through GitHub Actions with Trusted Publishing and signed attestations. <a href="https://github.com/akashkokare2910/mcplint">GitHub</a> · <a href="https://pypi.org/project/mcplint-cli/">PyPI</a></p>
+  <p><strong>EvalForge</strong> — publicly deployed with a read-only showcase, and ships a Python SDK, CLI and GitHub Action. The repository is currently private.</p>
+</section>
+
+<section id="projects">
+  <h2>Selected projects</h2>
+  <ul class="plain">
+    <li><strong>EvalForge</strong> — AI agent reliability and evaluation platform. <a href="https://evalforge-one.vercel.app">Live</a></li>
+    <li><strong>MCPLint</strong> — behavioural reliability testing for MCP agent tools. <a href="https://github.com/akashkokare2910/mcplint">GitHub</a></li>
+    <li><strong>RAG-Powered Document Assistant</strong> — document ingestion, chunking, embedding and retrieval over pgvector, with semantic search and MMR re-ranking, behind a FastAPI and Next.js stack.</li>
+  </ul>
+</section>
+
+<section id="stack">
+  <h2>Technical stack</h2>
+  <dl class="stack">
+    <div><dt>AI / Agents</dt><dd>OpenAI, Amazon Bedrock, agentic workflows, agent evaluation, MCP, RAG, LangChain, time-series foundation models</dd></div>
+    <div><dt>Backend</dt><dd>Python, FastAPI, Node.js, Redis, async job queues, multi-tenant APIs, JWT / OAuth</dd></div>
+    <div><dt>Frontend</dt><dd>Next.js (App Router), React, TypeScript, RTK Query, Tailwind CSS</dd></div>
+    <div><dt>Data</dt><dd>PostgreSQL, Supabase, Elasticsearch, S3 / Parquet, pgvector, MySQL</dd></div>
+    <div><dt>Cloud / Infra</dt><dd>AWS (EC2, S3, Lambda, RDS, Bedrock), Docker, GitHub Actions, Vercel, Render</dd></div>
+    <div><dt>Developer tooling</dt><dd>Python SDKs, CLIs, CI quality gates, PyPI Trusted Publishing, SARIF reporting</dd></div>
+  </dl>
+</section>
+
+<section id="notes">
+  <h2>Notes</h2>
+  <p class="sub">Technical notes on AI reliability, agent evaluation, MCP and production AI systems. Coming soon.</p>
+</section>
+
+<footer>
+  <p>Akash Kokare</p>
+  <p>Mumbai, India</p>
+  <p><a href="mailto:akashkokare.in@gmail.com">akashkokare.in@gmail.com</a></p>
+  <p><a href="https://github.com/akashkokare2910">GitHub</a> · <a href="https://linkedin.com/in/akash-kokare13bz">LinkedIn</a></p>
+</footer>
+
+</div>
+</body>
+</html>
