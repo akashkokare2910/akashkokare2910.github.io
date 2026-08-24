@@ -38,7 +38,7 @@ export function EvidenceCase({ item }: EvidenceCaseProps) {
         </dl>
       </header>
 
-      <details className="evidence-case__depth">
+      <details className="evidence-case__depth" data-responsive-evidence open>
         <summary>
           <span>Inspect system proof</span>
           <small>Problem · ownership · decision · artifact</small>

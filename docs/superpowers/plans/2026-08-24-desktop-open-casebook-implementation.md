@@ -4,7 +4,7 @@
 
 **Goal:** Make every engineering case substantive and immediately inspectable on desktop while preserving the compact native disclosures on tablet and mobile.
 
-**Architecture:** Keep the existing single `EvidenceCase` semantic tree and use an author-level desktop media query to expose the closed details body without JavaScript. Retain native details behavior below 901px, add a sticky desktop identity rail, and tighten only desktop vertical rhythm through the existing feature and global stylesheets.
+**Architecture:** Keep the existing single `EvidenceCase` semantic tree open in static HTML, hide its summary on desktop, and use one inline media-query controller to close the native details elements below 901px. Add a sticky desktop identity rail and tighten only desktop vertical rhythm through the existing feature and global stylesheets; no React hydration is introduced.
 
 **Tech Stack:** Next.js 16 static export, React 19, TypeScript 5.9, semantic HTML, CSS media queries, Vitest, Testing Library, browser visual verification, Lighthouse
 
@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Render every evidence fact exactly once from `src/features/profile/content.ts`.
-- Introduce no client component, viewport script, ReactFlow dependency, additional font, or duplicated responsive content.
+- Introduce no client component, React hydration, ReactFlow dependency, additional font, or duplicated responsive content.
 - Desktop evidence is visually open at widths of 901px and wider.
 - Tablet and mobile evidence is collapsed by default at widths of 900px and narrower.
 - Retain native details/summary keyboard behavior and 44px minimum targets.
@@ -31,7 +31,7 @@
 
 **Interfaces:**
 - Consumes: `EvidenceCaseData` from `src/features/profile/types.ts`
-- Produces: one closed `<details className="evidence-case__depth">` per case with the visible summary label `Inspect system proof`
+- Produces: one static-open `<details className="evidence-case__depth">` per case with the compact-view label `Inspect system proof`
 
 - [ ] **Step 1: Write the failing disclosure-copy test**
 
@@ -133,13 +133,13 @@ Add an author-level override before the existing `max-width: 900px` rules:
     display: none;
   }
 
-  .evidence-case__depth:not([open]) > .evidence-case__body {
-    display: block !important;
+  .evidence-case__depth > .evidence-case__body {
+    padding-top: 0;
   }
 }
 ```
 
-The `!important` is narrowly required to override the browser's closed-details descendant rule while keeping the semantic element closed for mobile behavior.
+The static details elements render open. A tested inline media-query controller removes `open` at compact widths before the page finishes parsing, retaining native mobile disclosure behavior without hydrating React.
 
 - [ ] **Step 3: Refine the decision register and artifact rhythm**
 

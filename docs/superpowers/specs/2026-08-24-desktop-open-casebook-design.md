@@ -29,7 +29,7 @@ The desktop site becomes an **open engineering casebook**. Each case reads as an
 3. The relevant system artifact follows directly below those decisions.
 4. Supporting facts close the case.
 
-The evidence is visually open on desktop and remains a native disclosure on smaller screens. The same semantic content is rendered once. CSS changes its presentation across breakpoints; no duplicated desktop/mobile copy and no viewport-detection JavaScript are introduced.
+The evidence is visually open on desktop and remains a native disclosure on smaller screens. The same semantic content is rendered once. Static HTML defaults to visible evidence; a tiny inline media-query controller closes the native details elements on compact viewports. No duplicated desktop/mobile copy or React hydration is introduced.
 
 ## Information architecture
 
@@ -100,8 +100,8 @@ No additional typeface, gradient, illustration, decorative card treatment, or an
 - Desktop-visible evidence must not create duplicate screen-reader announcements.
 - Mobile focus order must match visual order.
 - Reduced-motion behavior remains unchanged.
-- No ReactFlow dependency, viewport script, client component, or additional font is introduced.
-- The production output must remain static and free of unused Next.js client runtime.
+- No ReactFlow dependency, client component, React hydration, or additional font is introduced.
+- The only behavioral JavaScript is the evidence disclosure media-query controller; the production output remains static and free of unused Next.js client runtime.
 
 ## Verification
 

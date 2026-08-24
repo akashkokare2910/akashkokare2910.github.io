@@ -428,6 +428,46 @@
   font-weight: 580;
 }
 
+@media (min-width: 901px) {
+  .evidence {
+    padding-top: clamp(7rem, 9vw, 9rem);
+  }
+
+  .evidence__cases {
+    margin-top: clamp(3.5rem, 5vw, 5rem);
+  }
+
+  .evidence-case {
+    align-items: start;
+    padding-block: clamp(4rem, 6vw, 6rem);
+  }
+
+  .evidence-case__header {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .evidence-case__depth {
+    align-self: start;
+  }
+
+  .evidence-case__depth > summary {
+    display: none;
+  }
+
+  .evidence-case__depth > .evidence-case__body {
+    padding-top: 0;
+  }
+
+  .evidence-decisions > div {
+    min-height: 11rem;
+  }
+
+  .artifact {
+    margin-top: 1.75rem;
+  }
+}
+
 @media (max-width: 900px) {
   .evidence-case {
     grid-template-columns: 1fr;

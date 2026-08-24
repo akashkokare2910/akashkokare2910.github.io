@@ -1,5 +1,6 @@
 import "../evidence.css";
 
+import { responsiveEvidenceController } from "@/features/evidence/responsiveEvidenceController";
 import { evidenceCases } from "@/features/profile/content";
 import { EvidenceCase } from "./EvidenceCase";
 
@@ -19,6 +20,10 @@ export function EvidenceSection() {
           <EvidenceCase item={item} key={item.id} />
         ))}
       </div>
+      <script
+        data-evidence-controller
+        dangerouslySetInnerHTML={{ __html: responsiveEvidenceController }}
+      />
     </section>
   );
 }
