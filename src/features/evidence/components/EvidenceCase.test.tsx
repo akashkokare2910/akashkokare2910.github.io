@@ -16,8 +16,9 @@ describe("EvidenceCase", () => {
     expect(within(proofline as HTMLElement).getByText(item.facts[0].value)).toBeInTheDocument();
     expect(within(proofline as HTMLElement).getByText(item.facts[1].value)).toBeInTheDocument();
 
-    const disclosure = within(article).getByText("Open case evidence").closest("details");
+    const disclosure = within(article).getByText("Inspect system proof").closest("details");
     expect(disclosure).toBeTruthy();
+    expect(disclosure).not.toHaveAttribute("open");
     expect(within(disclosure as HTMLElement).getByText(item.problem)).toBeInTheDocument();
   });
 

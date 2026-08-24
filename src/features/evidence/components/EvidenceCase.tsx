@@ -40,8 +40,8 @@ export function EvidenceCase({ item }: EvidenceCaseProps) {
 
       <details className="evidence-case__depth">
         <summary>
-          <span>Open case evidence</span>
-          <small>Problem · ownership · system proof</small>
+          <span>Inspect system proof</span>
+          <small>Problem · ownership · decision · artifact</small>
         </summary>
 
         <div className="evidence-case__body">
