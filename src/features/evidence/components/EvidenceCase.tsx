@@ -27,35 +27,51 @@ export function EvidenceCase({ item }: EvidenceCaseProps) {
             </a>
           ))}
         </div>
-      </header>
 
-      <div className="evidence-case__body">
-        <dl className="evidence-decisions">
-          <div>
-            <dt>Problem</dt>
-            <dd>{item.problem}</dd>
-          </div>
-          <div>
-            <dt>Ownership</dt>
-            <dd>{item.ownership}</dd>
-          </div>
-          <div>
-            <dt>Decision</dt>
-            <dd>{item.decision}</dd>
-          </div>
-        </dl>
-
-        <Artifact type={item.artifact} />
-
-        <dl className="evidence-facts">
-          {item.facts.map((fact) => (
+        <dl className="evidence-case__proofline">
+          {item.facts.slice(0, 2).map((fact) => (
             <div key={fact.label}>
               <dt>{fact.label}</dt>
               <dd>{fact.value}</dd>
             </div>
           ))}
         </dl>
-      </div>
+      </header>
+
+      <details className="evidence-case__depth">
+        <summary>
+          <span>Open case evidence</span>
+          <small>Problem · ownership · system proof</small>
+        </summary>
+
+        <div className="evidence-case__body">
+          <dl className="evidence-decisions">
+            <div>
+              <dt>Problem</dt>
+              <dd>{item.problem}</dd>
+            </div>
+            <div>
+              <dt>Ownership</dt>
+              <dd>{item.ownership}</dd>
+            </div>
+            <div>
+              <dt>Decision</dt>
+              <dd>{item.decision}</dd>
+            </div>
+          </dl>
+
+          <Artifact type={item.artifact} />
+
+          <dl className="evidence-facts">
+            {item.facts.slice(2).map((fact) => (
+              <div key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </details>
     </article>
   );
 }
