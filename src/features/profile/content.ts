@@ -200,13 +200,13 @@ export const evidenceCases: EvidenceCase[] = [
 
 export const journey: JourneyItem[] = [
   {
-    period: "2025 — now",
+    period: "2025 to now",
     role: "AI Engineer",
     organization: "Birla AI Labs",
     summary: "Forecasting systems, AI platform infrastructure, agent tooling, and product delivery.",
   },
   {
-    period: "2022 — 2024",
+    period: "2022 to 2024",
     role: "Software Engineer",
     organization: "ResearchWire Knowledge Solutions",
     summary: "Search systems and ingestion pipelines across large patent datasets.",

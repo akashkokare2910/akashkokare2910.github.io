@@ -5,13 +5,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://akashkokare2910.github.io"),
-  title: "Akash Kokare — Applied AI Engineer",
+  title: "Akash Kokare | Applied AI Engineer",
   description:
     "Applied AI engineer building reliable agents, production forecasting systems, MCP tooling, and the interfaces people use.",
   alternates: { canonical: "/" },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "profile",
-    title: "Akash Kokare — Applied AI Engineer",
+    title: "Akash Kokare | Applied AI Engineer",
     description: "AI systems should behave like dependable software.",
     url: "/",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
