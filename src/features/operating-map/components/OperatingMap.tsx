@@ -1,5 +1,6 @@
 import "../operating-map.css";
 
+import { MobileOperatingMap } from "./MobileOperatingMap";
 import { OperatingMapGraph } from "./OperatingMapGraph";
 
 export function OperatingMap() {
@@ -14,7 +15,12 @@ export function OperatingMap() {
         </p>
       </div>
       <div className="shell operating-map__interactive">
-        <OperatingMapGraph />
+        <div className="operating-map__desktop">
+          <OperatingMapGraph />
+        </div>
+        <div className="operating-map__mobile">
+          <MobileOperatingMap />
+        </div>
       </div>
     </section>
   );
