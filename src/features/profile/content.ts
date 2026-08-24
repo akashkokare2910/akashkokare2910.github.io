@@ -1,0 +1,221 @@
+import type {
+  EvidenceCase,
+  JourneyItem,
+  MapEdgeItem,
+  MapNodeItem,
+} from "./types";
+
+export const profile = {
+  identity: {
+    name: "Akash Kokare",
+    nativeName: "आकाश कोकरे",
+    role: "AI Engineer",
+    organization: "Birla AI Labs",
+    location: "Mumbai, India",
+  },
+  thesis: {
+    heading: "AI systems should behave like dependable software.",
+    body: "I build them that way: from time-series foundation models and multi-tenant inference to agent evaluation, MCP tooling, and the interfaces people use.",
+  },
+  proof: [
+    { value: "7", label: "foundation models served" },
+    { value: "15", label: "deterministic MCP rules" },
+    { value: "20", label: "audited agent cases" },
+    { value: "10×", label: "pipeline throughput" },
+  ],
+  links: [
+    { label: "GitHub", href: "https://github.com/akashkokare2910" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/akash-kokare13bz" },
+    { label: "Email", href: "mailto:akashkokare.in@gmail.com" },
+  ],
+  email: "akashkokare.in@gmail.com",
+} as const;
+
+export const mapNodes: MapNodeItem[] = [
+  {
+    id: "map-center",
+    label: "Applied AI engineering",
+    kicker: "Operating thesis",
+    summary: "Models become products when their behavior is measurable and their surrounding systems are dependable.",
+    kind: "center",
+    position: { x: 430, y: 220 },
+  },
+  {
+    id: "map-reliable-agents",
+    label: "Reliable agents",
+    kicker: "Practice",
+    summary: "Evaluate tool choices, arguments, trajectories, state changes, and outcomes.",
+    kind: "practice",
+    position: { x: 110, y: 30 },
+  },
+  {
+    id: "map-evalforge",
+    label: "EvalForge",
+    kicker: "System",
+    summary: "Behavioral evaluation and release gates for tool-using agents.",
+    kind: "system",
+    position: { x: 25, y: 170 },
+    evidenceId: "evalforge",
+  },
+  {
+    id: "map-deterministic",
+    label: "Deterministic first",
+    kicker: "Principle",
+    summary: "Express ground truth in code before reaching for another model as judge.",
+    kind: "principle",
+    position: { x: 195, y: 300 },
+  },
+  {
+    id: "map-production-ai",
+    label: "Production AI",
+    kicker: "Practice",
+    summary: "Build tenancy, execution, data, observability, and failure handling around inference.",
+    kind: "practice",
+    position: { x: 735, y: 30 },
+  },
+  {
+    id: "map-forecasting",
+    label: "Forecasting platform",
+    kicker: "System",
+    summary: "Seven zero-shot models behind multi-tenant serving and restart-safe jobs.",
+    kind: "system",
+    position: { x: 825, y: 170 },
+    evidenceId: "forecasting",
+  },
+  {
+    id: "map-ordinary",
+    label: "Keep AI systems ordinary",
+    kicker: "Principle",
+    summary: "Authentication, idempotency, isolation, and recovery stay non-negotiable.",
+    kind: "principle",
+    position: { x: 700, y: 300 },
+  },
+  {
+    id: "map-developer-tools",
+    label: "Developer tools",
+    kicker: "Practice",
+    summary: "Move reliability checks earlier, into contracts, local workflows, and CI.",
+    kind: "practice",
+    position: { x: 130, y: 500 },
+  },
+  {
+    id: "map-mcplint",
+    label: "MCPLint",
+    kicker: "System",
+    summary: "Static analysis for ambiguous Model Context Protocol tool contracts.",
+    kind: "system",
+    position: { x: 330, y: 600 },
+    evidenceId: "mcplint",
+  },
+  {
+    id: "map-product-craft",
+    label: "Product craft",
+    kicker: "Practice",
+    summary: "Carry system intent through to the interface people inspect and operate.",
+    kind: "practice",
+    position: { x: 705, y: 500 },
+  },
+  {
+    id: "map-interface",
+    label: "Interfaces people use",
+    kicker: "Outcome",
+    summary: "Own delivery from ingestion and API boundaries through product interaction.",
+    kind: "principle",
+    position: { x: 520, y: 620 },
+  },
+];
+
+export const mapEdges: MapEdgeItem[] = [
+  { id: "edge-center-agents", source: "map-center", target: "map-reliable-agents" },
+  { id: "edge-agents-evalforge", source: "map-reliable-agents", target: "map-evalforge" },
+  { id: "edge-agents-deterministic", source: "map-reliable-agents", target: "map-deterministic" },
+  { id: "edge-center-production", source: "map-center", target: "map-production-ai" },
+  { id: "edge-production-forecasting", source: "map-production-ai", target: "map-forecasting" },
+  { id: "edge-production-ordinary", source: "map-production-ai", target: "map-ordinary" },
+  { id: "edge-center-tools", source: "map-center", target: "map-developer-tools" },
+  { id: "edge-tools-mcplint", source: "map-developer-tools", target: "map-mcplint" },
+  { id: "edge-center-product", source: "map-center", target: "map-product-craft" },
+  { id: "edge-product-interface", source: "map-product-craft", target: "map-interface" },
+];
+
+export const evidenceCases: EvidenceCase[] = [
+  {
+    id: "evalforge",
+    index: "Case A",
+    title: "EvalForge",
+    thesis: "A plausible final answer is not evidence that an agent behaved correctly.",
+    problem: "Tool-using agents can select the wrong action, mutate the wrong state, and still report success convincingly.",
+    ownership: "Built the evaluation model, multi-tenant platform, SDK, CLI, CI gates, and product surface.",
+    decision: "Judge tool calls, arguments, execution trajectories, final environment state, and task outcome against a promoted baseline.",
+    facts: [
+      { label: "Pilot", value: "20 manually audited cases" },
+      { label: "Coverage", value: "800+ automated tests" },
+      { label: "Delivery", value: "Python SDK, CLI, and GitHub Actions" },
+      { label: "Security", value: "Workspace isolation, scoped tokens, encrypted provider keys" },
+    ],
+    links: [
+      { label: "Live product", href: "https://evalforge-one.vercel.app" },
+      { label: "Read-only showcase", href: "https://evalforge-one.vercel.app/app" },
+    ],
+    artifact: "trace",
+  },
+  {
+    id: "mcplint",
+    index: "Case B",
+    title: "MCPLint",
+    thesis: "A schema can be valid while two tools remain indistinguishable to a model.",
+    problem: "Contract validation catches malformed calls after selection, not ambiguity that causes the model to choose the wrong tool.",
+    ownership: "Designed and published the deterministic analysis engine, behavioral contract format, reporters, and release pipeline.",
+    decision: "Score the distinctions carried by names, descriptions, schemas, and cross-tool relationships without requiring a model key.",
+    facts: [
+      { label: "Analysis", value: "15 deterministic rules" },
+      { label: "Contracts", value: "Adversarial generation and mutation testing" },
+      { label: "Reporting", value: "SARIF, HTML, JSON, and CI exit codes" },
+      { label: "Release", value: "PyPI Trusted Publishing and signed attestations" },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/akashkokare2910/mcplint" },
+      { label: "PyPI", href: "https://pypi.org/project/mcplint-cli/" },
+    ],
+    artifact: "contract",
+  },
+  {
+    id: "forecasting",
+    index: "Case C",
+    title: "Forecasting platform",
+    thesis: "Foundation models become useful when the surrounding system is dependable.",
+    problem: "Long-running inference, varied data, multiple tenants, and assistant access turn model serving into a systems problem.",
+    ownership: "Own delivery from ingestion, validation, and inference through API, agent, and product interface.",
+    decision: "Share one authenticated workflow across product and MCP surfaces, with queued execution and idempotency protecting long jobs.",
+    facts: [
+      { label: "Models", value: "7 zero-shot time-series foundation models" },
+      { label: "Serving", value: "Multi-tenant FastAPI with quotas and rate limits" },
+      { label: "Execution", value: "Redis-backed jobs with restart-safe idempotency" },
+      { label: "Platform", value: "Next.js, PostgreSQL, Supabase, Redis, and AWS" },
+    ],
+    links: [{ label: "Product", href: "https://oab-forecasting.com" }],
+    artifact: "forecast",
+  },
+];
+
+export const journey: JourneyItem[] = [
+  {
+    period: "2025 — now",
+    role: "AI Engineer",
+    organization: "Birla AI Labs",
+    summary: "Forecasting systems, AI platform infrastructure, agent tooling, and product delivery.",
+  },
+  {
+    period: "2022 — 2024",
+    role: "Software Engineer",
+    organization: "ResearchWire Knowledge Solutions",
+    summary: "Search systems and ingestion pipelines across large patent datasets.",
+    proof: "30% search improvement · 50% faster conversion · 10× pipeline throughput",
+  },
+  {
+    period: "2021",
+    role: "Machine Learning Intern",
+    organization: "Regex Software Services",
+    summary: "Transfer learning for image classification.",
+  },
+];
