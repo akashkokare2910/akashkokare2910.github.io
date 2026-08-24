@@ -251,39 +251,125 @@
   text-transform: uppercase;
 }
 
-.forecast-flow {
-  display: grid;
-  overflow: hidden;
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.forecast-flow__stage {
+.forecast-topology {
   position: relative;
-  display: grid;
-  min-height: 11rem;
-  align-content: space-between;
-  gap: 1rem;
-  padding: 1.35rem;
-  border-left: 1px solid var(--rule);
+  overflow: hidden;
+  margin-inline: 0;
 }
 
-.forecast-flow__stage:first-child {
-  border-left: 0;
-}
-
-.forecast-flow__stage span {
-  color: var(--verify);
-  font: 0.62rem/1 var(--font-mono);
-}
-
-.forecast-flow__stage strong {
-  align-self: end;
-  font-size: 0.92rem;
-}
-
-.forecast-flow__stage small {
+.forecast-topology > figcaption {
+  padding: 1.15rem 1.35rem;
+  border-bottom: 1px solid var(--rule);
   color: var(--slate);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
+}
+
+.forecast-topology__cue {
+  display: none;
+}
+
+.forecast-topology__viewport {
+  position: relative;
+  min-height: 23rem;
+  padding: 2rem 1.25rem 1.25rem;
+  background:
+    radial-gradient(circle at center, var(--rule-soft) 1px, transparent 1.5px) 0 0 / 26px 26px,
+    var(--paper);
+}
+
+.forecast-topology__connectors {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.forecast-topology__connectors path {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.forecast-topology__stages {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.forecast-topology__stages li {
+  display: grid;
+  min-height: 9rem;
+  align-content: space-between;
+  padding: 1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--paper), var(--canvas) 15%);
+}
+
+.forecast-topology__stages li:nth-child(2),
+.forecast-topology__stages li:nth-child(5) {
+  border-color: color-mix(in srgb, var(--verify), var(--rule) 50%);
+}
+
+.forecast-topology__stages span {
+  color: var(--verify);
+  font: 0.58rem/1 var(--font-mono);
+}
+
+.forecast-topology__stages h4 {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.15;
+}
+
+.forecast-topology__stages p {
+  margin: 0.65rem 0 0;
+  color: var(--slate);
+  font-size: 0.6rem;
+  line-height: 1.4;
+}
+
+.forecast-topology__delivery {
+  position: relative;
+  z-index: 1;
+  width: 43%;
+  margin: 5rem 0 0 auto;
+}
+
+.forecast-topology__delivery > p {
+  margin: 0 0 0.55rem;
+  color: var(--mist);
+  font: 0.56rem/1.2 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.forecast-topology__delivery ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+}
+
+.forecast-topology__delivery li {
+  display: grid;
+  min-height: 3.25rem;
+  place-items: center;
+  border: 1px solid var(--verify);
+  border-radius: var(--radius-sm);
+  background: var(--verify-soft);
+  color: var(--carbon);
+  font-size: 0.7rem;
+  font-weight: 680;
 }
 
 .evidence-facts {
@@ -366,8 +452,7 @@
 
 @media (max-width: 650px) {
   .evidence-decisions,
-  .contract-example,
-  .forecast-flow {
+  .contract-example {
     grid-template-columns: 1fr;
   }
 
@@ -396,14 +481,60 @@
     justify-self: center;
   }
 
-  .forecast-flow__stage {
-    min-height: 7.5rem;
-    border-top: 1px solid var(--rule);
-    border-left: 0;
+  .forecast-topology > figcaption {
+    padding: 1rem;
   }
 
-  .forecast-flow__stage:first-child {
-    border-top: 0;
+  .forecast-topology__cue {
+    display: block;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    color: var(--verify);
+    font: 0.62rem/1.2 var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  .forecast-topology__viewport {
+    min-height: 0;
+    overflow-x: auto;
+    padding: 0 1rem 1rem;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--rule) transparent;
+  }
+
+  .forecast-topology__connectors {
+    display: none;
+  }
+
+  .forecast-topology__stages {
+    width: max-content;
+    grid-template-columns: repeat(5, minmax(16.5rem, 76vw));
+    gap: 0.65rem;
+  }
+
+  .forecast-topology__stages li {
+    position: relative;
+    min-height: 9rem;
+    scroll-snap-align: start;
+  }
+
+  .forecast-topology__stages li:not(:last-child)::after {
+    position: absolute;
+    right: -0.45rem;
+    align-self: center;
+    content: "→";
+    color: var(--verify);
+    font-family: var(--font-mono);
+  }
+
+  .forecast-topology__delivery {
+    width: min(22rem, 100%);
+    margin: 1rem 0 0;
+  }
+
+  .forecast-topology__delivery li {
+    min-height: 3rem;
   }
 
   .evidence-facts {
