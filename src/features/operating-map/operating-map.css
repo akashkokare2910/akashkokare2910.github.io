@@ -189,6 +189,16 @@
   bottom: calc(100% + 0.6rem);
 }
 
+@media (min-width: 901px) {
+  .operating-map {
+    padding-top: clamp(7rem, 9vw, 9rem);
+  }
+
+  .operating-map__interactive {
+    margin-top: 3rem;
+  }
+}
+
 @media (max-width: 900px) {
   .operating-map {
     padding-top: 5rem;

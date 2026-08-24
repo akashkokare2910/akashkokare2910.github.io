@@ -380,6 +380,16 @@ a {
   text-underline-offset: 0.25rem;
 }
 
+@media (min-width: 901px) {
+  .journey {
+    padding-top: clamp(7rem, 9vw, 9rem);
+  }
+
+  .site-footer {
+    margin-top: clamp(5rem, 7vw, 7rem);
+  }
+}
+
 @media (max-width: 760px) {
   body {
     background: var(--canvas);
