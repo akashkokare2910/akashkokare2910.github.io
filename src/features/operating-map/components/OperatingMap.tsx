@@ -9,10 +9,7 @@ export function OperatingMap() {
       <div className="shell section-intro">
         <p className="section-label">Operating Map</p>
         <h2 id="map-title">How the work connects.</h2>
-        <p>
-          Four practices, three systems, and one way of deciding what is safe to ship.
-          Open a node to inspect the thinking behind it.
-        </p>
+        <p>Three systems. One engineering thesis. Open a node for the evidence.</p>
       </div>
       <div className="shell operating-map__interactive">
         <div className="operating-map__desktop">

@@ -88,11 +88,46 @@
 }
 
 .evidence-case__depth > summary {
+  position: relative;
+  display: grid;
+  min-height: 4rem;
+  align-content: center;
+  gap: 0.2rem;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  list-style: none;
+}
+
+.evidence-case__depth > summary::-webkit-details-marker {
   display: none;
 }
 
-.evidence-case__depth:not([open]) > .evidence-case__body {
-  display: block;
+.evidence-case__depth > summary::after {
+  position: absolute;
+  right: 1rem;
+  content: "+";
+  color: var(--verify);
+  font: 1rem/1 var(--font-mono);
+}
+
+.evidence-case__depth[open] > summary::after {
+  content: "−";
+}
+
+.evidence-case__depth > summary span {
+  font-size: 0.8rem;
+  font-weight: 680;
+}
+
+.evidence-case__depth > summary small {
+  color: var(--mist);
+  font-size: 0.66rem;
+}
+
+.evidence-case__depth[open] > .evidence-case__body {
+  padding-top: 1.5rem;
 }
 
 .evidence-case__body {
@@ -402,55 +437,25 @@
     max-width: 48ch;
   }
 
-  .evidence-case__depth > summary {
-    position: relative;
-    display: grid;
-    min-height: 4rem;
-    align-content: center;
-    gap: 0.2rem;
-    padding: 0.75rem 2.5rem 0.75rem 1rem;
-    border: 1px solid var(--rule);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .evidence-case__depth > summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .evidence-case__depth > summary::after {
-    position: absolute;
-    right: 1rem;
-    content: "+";
-    color: var(--verify);
-    font: 1rem/1 var(--font-mono);
-  }
-
-  .evidence-case__depth[open] > summary::after {
-    content: "−";
-  }
-
-  .evidence-case__depth > summary span {
-    font-size: 0.8rem;
-    font-weight: 680;
-  }
-
-  .evidence-case__depth > summary small {
-    color: var(--mist);
-    font-size: 0.66rem;
-  }
-
-  .evidence-case__depth:not([open]) > .evidence-case__body {
-    display: none;
-  }
-
   .evidence-case__depth[open] > .evidence-case__body {
     padding-top: 1.25rem;
   }
 }
 
 @media (max-width: 650px) {
+  .evidence {
+    padding-top: 6rem;
+  }
+
+  .evidence__cases {
+    margin-top: 3rem;
+  }
+
+  .evidence-case {
+    gap: 1.5rem;
+    padding-block: 3rem;
+  }
+
   .evidence-decisions,
   .contract-example {
     grid-template-columns: 1fr;
