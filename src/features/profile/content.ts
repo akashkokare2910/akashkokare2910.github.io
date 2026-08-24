@@ -104,7 +104,7 @@ export const mapNodes: MapNodeItem[] = [
     kicker: "System",
     summary: "Static analysis for ambiguous Model Context Protocol tool contracts.",
     kind: "system",
-    position: { x: 330, y: 600 },
+    position: { x: 245, y: 600 },
     evidenceId: "mcplint",
   },
   {
@@ -121,7 +121,7 @@ export const mapNodes: MapNodeItem[] = [
     kicker: "Outcome",
     summary: "Own delivery from ingestion and API boundaries through product interaction.",
     kind: "principle",
-    position: { x: 520, y: 620 },
+    position: { x: 590, y: 620 },
   },
 ];
 

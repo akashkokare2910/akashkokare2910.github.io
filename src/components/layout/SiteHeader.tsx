@@ -5,7 +5,7 @@ export function SiteHeader() {
         Skip to content
       </a>
       <div className="shell site-header__inner">
-        <a className="identity-mark" href="#thesis" aria-label="Back to introduction">
+        <a className="identity-mark" href="#thesis" aria-label="AK, back to introduction">
           AK
         </a>
         <nav className="site-nav" aria-label="Primary navigation">

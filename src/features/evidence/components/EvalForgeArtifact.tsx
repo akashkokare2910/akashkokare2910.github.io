@@ -25,10 +25,10 @@ export function EvalForgeArtifact() {
       <figure className="artifact-shot">
         <Image
           alt="EvalForge comparison showing a do not ship verdict after candidate regressions"
-          height={1200}
+          height={946}
           loading="lazy"
-          src="/evalforge-quality-gate.png"
-          width={1142}
+          src="/evalforge-quality-gate.webp"
+          width={900}
         />
         <figcaption>
           Aggregate task success improved. The release still failed because previously passing

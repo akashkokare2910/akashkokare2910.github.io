@@ -1,8 +1,6 @@
-import "@xyflow/react/dist/style.css";
 import "../operating-map.css";
 
-import { OperatingMapFallback } from "./OperatingMapFallback";
-import { OperatingMapLazy } from "./OperatingMapLazy";
+import { OperatingMapGraph } from "./OperatingMapGraph";
 
 export function OperatingMap() {
   return (
@@ -12,19 +10,11 @@ export function OperatingMap() {
         <h2 id="map-title">How the work connects.</h2>
         <p>
           Four practices, three systems, and one way of deciding what is safe to ship.
-          Select a node to inspect the thinking behind it.
+          Open a node to inspect the thinking behind it.
         </p>
       </div>
       <div className="shell operating-map__interactive">
-        <div className="operating-map__desktop">
-          <OperatingMapLazy />
-        </div>
-        <div className="operating-map__fallback">
-          <OperatingMapFallback />
-        </div>
-        <noscript>
-          <style>{`.operating-map__fallback{display:block}.operating-map__desktop{display:none}`}</style>
-        </noscript>
+        <OperatingMapGraph />
       </div>
     </section>
   );
