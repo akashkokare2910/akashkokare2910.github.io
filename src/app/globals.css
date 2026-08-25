@@ -37,9 +37,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    linear-gradient(var(--rule-soft) 1px, transparent 1px) 0 0 / 100% 8rem,
-    var(--canvas);
+  background: var(--canvas);
   color: var(--carbon);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -391,10 +389,6 @@ a {
 }
 
 @media (max-width: 760px) {
-  body {
-    background: var(--canvas);
-  }
-
   .site-nav a {
     padding-inline: 0.35rem;
     font-size: 0.75rem;

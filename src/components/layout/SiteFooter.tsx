@@ -8,8 +8,8 @@ export function SiteFooter() {
           <p className="section-label">Contact</p>
           <p className="site-footer__prompt">Have a difficult AI system to make dependable?</p>
         </div>
-        <a className="text-link text-link--large" href={`mailto:${profile.email}`}>
-          Start a conversation
+        <a className="text-link text-link--large" href={profile.booking.href}>
+          {profile.booking.label}
           <span aria-hidden="true">↗</span>
         </a>
         <nav className="site-footer__links" aria-label="Elsewhere">

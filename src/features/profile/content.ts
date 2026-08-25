@@ -28,6 +28,10 @@ export const profile = {
     { label: "LinkedIn", href: "https://linkedin.com/in/akash-kokare13bz" },
     { label: "Email", href: "mailto:akashkokare.in@gmail.com" },
   ],
+  booking: {
+    label: "Book a 30-minute call",
+    href: "https://cal.com/akash-kokare/30min",
+  },
   email: "akashkokare.in@gmail.com",
 } as const;
 

@@ -27,9 +27,9 @@ describe("portfolio identity", () => {
     render(<SiteFooter />);
 
     expect(screen.queryByText("Akash Kokare")).not.toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Start a conversation" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Book a 30-minute call" })).toHaveAttribute(
       "href",
-      "mailto:akashkokare.in@gmail.com",
+      "https://cal.com/akash-kokare/30min",
     );
   });
 
