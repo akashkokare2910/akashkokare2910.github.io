@@ -1,13 +1,13 @@
 {
   "name": "Akash Kokare",
   "short_name": "Akash Kokare",
-  "description": "AI Engineer at Birla AI Labs building applied AI systems, agent reliability tooling, MCP integrations and developer platforms.",
+  "description": "Applied AI engineer building reliable agents and production AI systems.",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#f2f5f4",
+  "theme_color": "#f2f5f4",
   "icons": [
-    { "src": "/public/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/public/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }

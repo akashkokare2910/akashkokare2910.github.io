@@ -1,11 +1,23 @@
-# akashkokare2910.github.io
+# Akash Kokare — portfolio
 
-Personal engineering homepage — static HTML and CSS, no build step, no JavaScript.
+An evidence-first engineering portfolio built as a statically exported Next.js application. The signature Operating Map connects production AI, agent reliability, developer tooling, and product craft without repeating project copy across the page.
 
+## Local development
+
+```bash
+npm ci
+npm run dev
 ```
-index.html     the page
-styles.css     all styling
-public/        portrait, resume, screenshot, favicon
+
+Open `http://localhost:3000`.
+
+## Verification
+
+```bash
+npm test
+npm run typecheck
+npm run copy-lint
+npm run build
 ```
 
-Served by GitHub Pages from `main`.
+`npm run build` writes the GitHub Pages artifact to `out/`. Deployment runs only from `main` through `.github/workflows/deploy.yml`.
