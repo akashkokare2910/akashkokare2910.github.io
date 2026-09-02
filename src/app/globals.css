@@ -100,8 +100,8 @@ a {
 
 .identity-mark {
   display: grid;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   place-items: center;
   border: 1px solid var(--carbon);
   border-radius: 50%;
@@ -120,6 +120,7 @@ a {
 
 .site-nav a {
   display: grid;
+  min-width: 2.75rem;
   min-height: 2.75rem;
   place-items: center;
   padding-inline: 0.5rem;

@@ -6,6 +6,13 @@ import "./resume.css";
 export const metadata: Metadata = {
   title: "Résumé | Akash Kokare",
   description: "Experience, selected AI systems, and engineering capabilities.",
+  alternates: { canonical: "/resume/" },
+  openGraph: {
+    title: "Résumé | Akash Kokare",
+    description: "Experience, selected AI systems, and engineering capabilities.",
+    url: "/resume/",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 const capabilities = [
