@@ -1,0 +1,46 @@
+{
+  "_readme": "Entries that can't be fetched: Birla AI Labs work (private repos, needs your judgement before it goes public) and results that live in private repos. Public PRs, PyPI releases and notes are added automatically.",
+  "entries": [
+    {
+      "date": "2026-11-01",
+      "kind": "Shipped",
+      "html": "Future covariates for Chronos-2 and TabPFN-TS in the public forecasting API."
+    },
+    {
+      "date": "2026-10-29",
+      "kind": "Shipped",
+      "html": "Yug 0.1.2 and tested capacity controls to production."
+    },
+    {
+      "date": "2026-10-03",
+      "kind": "Shipped",
+      "html": "Made the lab’s public <a href=\"https://huggingface.co/birlaailabs/yug\">Yug</a> the default model in our forecasting API and app."
+    },
+    {
+      "date": "2026-09-30",
+      "kind": "Measured",
+      "html": "gpt-4o-mini, 8 trials per case: pass^8 = 95%, no flaky cases."
+    },
+    {
+      "date": "2026-09-13",
+      "kind": "Built",
+      "html": "A paired-failure audit for agent fallbacks."
+    },
+    {
+      "date": "2026-08-22",
+      "kind": "Shipped",
+      "html": "<a href=\"https://evalforge-one.vercel.app\">EvalForge</a> for real users: sign-in, workspaces, encrypted provider keys."
+    },
+    {
+      "date": "2026-08-20",
+      "kind": "Measured",
+      "html": "A 20-case agent reliability pilot against gpt-4o-mini."
+    },
+    {
+      "date": "2025-02-01",
+      "kind": "Joined",
+      "html": "Birla AI Labs, Office of Ananya Birla, as an AI engineer.",
+      "precision": "month"
+    }
+  ]
+}

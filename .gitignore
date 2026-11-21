@@ -1,6 +1,4 @@
-.next/
-node_modules/
-out/
-playwright-report/
-test-results/
-tsconfig.tsbuildinfo
+# Private working notes (Birla content, unpublished results). Never commit to the public repo.
+docs/
+.DS_Store
+_site/

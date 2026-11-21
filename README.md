@@ -1,23 +1,13 @@
-# Akash Kokare — portfolio
+# akashkokare.com
 
-An evidence-first engineering portfolio built as a statically exported Next.js application. The signature Operating Map connects production AI, agent reliability, developer tooling, and product craft without repeating project copy across the page.
+Personal site of Akash Kokare, AI engineer at Birla AI Labs. Static HTML, CSS and a little JavaScript; no framework and no build step beyond the Log.
 
-## Local development
+- `index.html`, `styles.css`, `app.js`: the page.
+- `notes/`: longer write-ups.
+- `scripts/build-log.mjs`: rebuilds the Log from public activity (PRs, PyPI releases, notes) plus `log.manual.json`, and refreshes the Yug download count. Runs in `.github/workflows/deploy.yml` daily, on every push to `main`, and on demand.
 
-```bash
-npm ci
-npm run dev
-```
-
-Open `http://localhost:3000`.
-
-## Verification
+Preview locally:
 
 ```bash
-npm test
-npm run typecheck
-npm run copy-lint
-npm run build
+python3 -m http.server 8765
 ```
-
-`npm run build` writes the GitHub Pages artifact to `out/`. Deployment runs only from `main` through `.github/workflows/deploy.yml`.

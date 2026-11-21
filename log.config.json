@@ -1,0 +1,9 @@
+{
+  "github_user": "akashkokare2910",
+  "since": "2025-01-01",
+  "pypi": { "mcplint-cli": "MCPLint" },
+  "huggingface": "birlaailabs/yug",
+  "ignore_repo_patterns": ["hacktoberfest"],
+  "include_closed_unmerged_prs": false,
+  "visible": 6
+}
