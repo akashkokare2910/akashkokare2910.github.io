@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f3f4f1">
+<title>Akash Kokare</title>
+<meta name="description" content="AI engineer at Birla AI Labs. Puts time-series foundation models into production and tests whether AI agents do what they claim.">
+<link rel="canonical" href="https://akashkokare.com/">
+<link rel="preload" as="font" type="font/woff2" href="assets/SourceSerif4.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/Inter.woff2" crossorigin>
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Akash Kokare, AI engineer">
+<meta property="og:description" content="Puts time-series foundation models into production at Birla AI Labs, and tests whether AI agents do what they claim.">
+<meta property="og:url" content="https://akashkokare.com/">
+<meta property="og:image" content="https://akashkokare.com/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Akash Kokare. A 20-case agent benchmark grid with the 8 cases an agent doing nothing passes marked in red.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css?v=14">
+<script src="app.js?v=14" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<main id="main" class="frame">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-main">
+      <h1 id="hero-title">Akash Kokare</h1>
+      <p class="role-line">AI engineer at <strong>Birla AI Labs</strong> · Mumbai</p>
+      <p class="lede">I put time-series foundation models into production, and I test whether AI agents do what they claim.</p>
+      <p class="hero-sub">At Birla AI Labs I started our public forecasting API and built the serving layer behind it. Eleven model families, the lab’s own Yug among them, answer our app, developers, and Claude and ChatGPT through it. Before we promised customers any limits, I measured what one GPU could actually serve.</p>
+      <p class="hero-sub">On my own time I audit agent benchmarks, starting with my own: <a href="#research">an agent doing nothing passed 40% of it</a>.</p>
+      <div class="hero-refs">
+        <a class="ref ext mono" href="https://api.oab-forecasting.com/">api.oab-forecasting.com</a>
+        <div class="hf">
+          <button type="button" class="ref hf-toggle" aria-expanded="false" aria-controls="yug-card">Yug model card<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="hf-card" id="yug-card" role="region" aria-label="Yug model card" hidden>
+            <div class="hf-head"><span class="hf-id">birlaailabs/yug</span><span class="hf-src">Hugging Face</span></div>
+            <p class="hf-desc">A time-series foundation model for zero-shot probabilistic forecasting, built by Birla AI Labs. One checkpoint forecasts a series it has never seen, with or without covariates.</p>
+            <dl class="hf-facts">
+              <div><dt>Parameters</dt><dd>271.8M</dd></div>
+              <div><dt>Context</dt><dd>up to 2,048 points</dd></div>
+              <div><dt>Output</dt><dd>9 quantiles, 0.1–0.9</dd></div>
+              <div><dt>GIFT-Eval</dt><dd>CRPS 0.529 · MASE 0.744</dd></div>
+              <div><dt>Licence</dt><dd>CC BY-NC 4.0</dd></div>
+              <div><dt>Hub</dt><dd><!-- hf:stats:start -->874 downloads · 18 likes<!-- hf:stats:end --></dd></div>
+            </dl>
+            <div class="hf-foot"><span>I serve it in production.</span><a href="https://huggingface.co/birlaailabs/yug">Open on Hugging Face ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="id-card" aria-label="Contact">
+      <div class="photo"><img src="assets/akash-kokare.jpg" width="152" height="190" alt="Akash Kokare"></div>
+      <ul class="contact">
+        <li><a class="local" href="mailto:akashkokare.in@gmail.com">Email</a></li>
+        <li><a href="https://github.com/akashkokare2910">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/akash-kokare13bz">LinkedIn</a></li>
+        <li><a class="local" href="Akash_Kokare_AI_Engineer.pdf">CV, PDF</a></li>
+        <li><a href="https://cal.com/akash-kokare/30min">Book 30 minutes</a></li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="work" id="work" aria-label="Work">
+    <div class="tabs" role="tablist" aria-label="Work by kind">
+      <button type="button" role="tab" id="tab-eng" aria-controls="panel-eng" aria-selected="true">Engineering <span>Birla AI Labs</span></button>
+      <button type="button" role="tab" id="tab-res" aria-controls="panel-res" aria-selected="false" tabindex="-1">Research <span>independent</span></button>
+      <button type="button" role="tab" id="tab-per" aria-controls="panel-per" aria-selected="false" tabindex="-1">Tools <span>built independently</span></button>
+    </div>
+
+    <!-- Engineering -->
+    <div class="panel" role="tabpanel" id="panel-eng" aria-labelledby="tab-eng" tabindex="0">
+      <p class="scope">Team projects at Birla AI Labs, since February 2025.</p>
+      <div class="panel-grid">
+        <figure class="evidence" aria-labelledby="bars-title">
+          <h2 id="bars-title">Largest request each model accepts, on one GPU</h2>
+          <div class="bars">
+            <ol class="bar-list">
+              <li style="--v:15.02%" title="Chronos-2 base, cold start, 1 × 8,192 context, horizon 128: 18.5 s"><span class="bar-name">Chronos-2 base <em>cold</em></span><span class="track"><i class="bar"></i><span class="val">18.5 s</span></span></li>
+              <li style="--v:17.41%" title="TimesFM 200M, warm, 26 series × 16,256 context, horizon 128: 20.4 s"><span class="bar-name">TimesFM 200M <em>warm ×26</em></span><span class="track"><i class="bar"></i><span class="val">20.4 s</span></span></li>
+              <li style="--v:24.26%" title="Yug, cold start before the checkpoint was pinned and cached, 1 × 2,048 context, horizon 256: 27.0 s"><span class="bar-name">Yug <em>cold, uncached</em></span><span class="track"><i class="bar"></i><span class="val">27.0 s</span></span></li>
+              <li style="--v:35.69%" title="Chronos large, cold start, 1 × 512 context, horizon 64: 43.1 s"><span class="bar-name">Chronos large <em>cold</em></span><span class="track"><i class="bar"></i><span class="val">43.1 s</span></span></li>
+              <li class="over" style="--v:44.96%" title="Chronos tiny, warm, 100 series × 512 context, horizon 64: 63.0 s, over the 60 s target"><span class="bar-name">Chronos tiny <em>warm ×100</em></span><span class="track"><i class="bar"></i><span class="val">63.0 s</span></span></li>
+              <li class="over" style="--v:60.74%" title="TimesFM 200M, cold start, 1 × 16,256 context, horizon 128: 120.2 s, over the 60 s target"><span class="bar-name">TimesFM 200M <em>cold</em></span><span class="track"><i class="bar"></i><span class="val">120 s</span></span></li>
+              <li class="over" style="--v:83.08%" title="TabPFN-TS, cold start, 1 × 1,000 context, horizon 256: timed out after 300 s"><span class="bar-name">TabPFN-TS <em>cold</em></span><span class="track"><i class="bar"></i><span class="val">&gt; 300 s</span></span></li>
+            </ol>
+            <div class="bar-axis" aria-hidden="true">
+              <span class="bar-name"></span>
+              <span class="track">
+                <span style="--t:0%">10 s</span><span style="--t:26.86%">30</span><span class="ref-tick" style="--t:43.77%">60</span><span style="--t:60.7%">120</span><span style="--t:83.08%">300</span>
+              </span>
+            </div>
+          </div>
+          <figcaption>Log scale. Three models cross the proposed 60-second target, so we didn’t promise it.</figcaption>
+        </figure>
+
+        <ul class="entries">
+          <li class="entry">
+            <h3>The forecasting API’s serving layer</h3>
+            <p>I started the API in June 2026 and built what keeps it standing under load: model loading that checks free memory first, admission by request size and deadline, fair scheduling so one heavy user can’t starve the rest, and background jobs for forecasts too large to answer directly. It serves eleven model families, from the lab’s own <a href="https://huggingface.co/birlaailabs/yug">Yug</a> to Datadog’s 2.5B-parameter Toto-2.</p>
+            <p class="figure-line">11 model families · Yug 7.2 s cold, 0.10 s warm</p>
+            <p class="refs"><a class="ref ext" href="https://huggingface.co/birlaailabs/yug">Yug model</a></p>
+          </li>
+          <li class="entry">
+            <h3>Sign-in for developers and AI assistants</h3>
+            <p>I built the developer platform: API keys, the API reference, and the OAuth sign-in Claude and ChatGPT use to reach our forecasting tools over MCP.</p>
+            <p class="refs"><a class="ref ext mono" href="https://api.oab-forecasting.com/">api.oab-forecasting.com</a></p>
+          </li>
+          <li class="entry">
+            <h3>Data and limits in the forecasting workspace</h3>
+            <p>Upload a spreadsheet, get a probabilistic forecast, backtest it, and ask an agent about it. I built the way data gets in, with ingestion that accepts any column layout, plus sign-in and the agent’s guardrails and daily limits.</p>
+            <p class="refs"><a class="ref ext" href="https://oab-forecasting.com">oab-forecasting.com</a></p>
+          </li>
+          <li class="entry">
+            <h3>Demand forecasting for UltraTech Cement</h3>
+            <p>UltraTech decides weeks ahead how much of each product to make and send to each region. Too little loses orders; too much sits in depots. I wrote most of the application its planners work in.</p>
+            <p class="refs"><span class="ref muted">Client project, details private</span></p>
+          </li>
+        </ul>
+
+        <section class="calls" aria-labelledby="calls-title">
+          <h2 id="calls-title">What the measurements changed</h2>
+          <ol>
+            <li>
+              <h3>No 60-second promise</h3>
+              <p class="figure-line">3 of 7 models over 60 s on their largest request</p>
+              <p>The proposal was 50 maximum-size forecasts in under a minute. One request took two minutes and one model timed out at five, so the existing limits stayed.</p>
+            </li>
+            <li>
+              <h3>A memory guard that refused safe work</h3>
+              <p class="figure-line">counted file cache as used → counts only unreclaimable memory</p>
+              <p>After a few model loads, admission control began turning away work that would have fit. The kernel’s file cache, left by reading checkpoints, was most of what it saw.</p>
+            </li>
+            <li>
+              <h3>Yug’s cold start</h3>
+              <p class="figure-line">27.0 s uncached → 7.2 s pinned and cached</p>
+              <p>One on-demand checkpoint download failed in testing. Yug now loads one version, verified by hash and cached at deploy time, and the service refuses to start rather than download mid-request.</p>
+            </li>
+          </ol>
+          <p class="refs"><a class="ref" href="notes/one-gpu.html">Note</a></p>
+        </section>
+      </div>
+    </div>
+
+    <!-- Research -->
+    <div class="panel" role="tabpanel" id="panel-res" aria-labelledby="tab-res" tabindex="0">
+      <p class="scope">Independent work on my own benchmark. Small samples, limits stated.</p>
+      <div class="panel-grid">
+        <figure class="evidence" aria-labelledby="grid-title">
+          <div class="grid-title-row">
+            <h2 id="grid-title">My agent benchmark, 20 cases by category</h2>
+            <div class="version" role="group" aria-label="Benchmark version">
+              <button type="button" data-version="v1" aria-pressed="true">v1</button>
+              <button type="button" data-version="v2" aria-pressed="false">v2</button>
+            </div>
+          </div>
+          <div class="grid" data-state="v1">
+            <ol class="col" aria-label="A, straightforward"><li title="A1 refund a single delivered order">A1</li><li title="A2 report subscription status without changing it">A2</li><li title="A3 update the stored card">A3</li></ol>
+            <ol class="col" aria-label="B, multi-step"><li title="B1 refund and confirm by email">B1</li><li title="B2 refund the named order among several">B2</li><li title="B3 change the shipping address and confirm">B3</li></ol>
+            <ol class="col" aria-label="C, constraint preservation"><li title="C1 refund while keeping the subscription active">C1</li><li title="C2 pause the subscription without refunding anything">C2</li><li title="C3 update the card without touching the address">C3</li></ol>
+            <ol class="col" aria-label="D, forbidden actions"><li class="hack" title="D1 explain cancellation without cancelling">D1</li><li class="hack" title="D2 quote a refund without issuing it">D2</li></ol>
+            <ol class="col" aria-label="E, ambiguity"><li class="hack" title="E1 ambiguous which order to refund">E1</li><li class="hack" title="E2 ambiguous referent for cancel">E2</li></ol>
+            <ol class="col" aria-label="F, missing resources"><li class="hack" title="F1 refund an order that does not exist">F1</li><li class="hack" title="F2 unknown customer">F2</li></ol>
+            <ol class="col" aria-label="G, idempotency"><li class="hack" title="G1 refund an already refunded order">G1</li></ol>
+            <ol class="col" aria-label="H, compound workflows"><li title="H1 refund and pause in one request">H1</li><li title="H2 address and card in one request">H2</li></ol>
+            <ol class="col" aria-label="I, conflicting instructions"><li class="hack" title="I1 contradictory cancel and keep active">I1</li></ol>
+            <ol class="col" aria-label="J, distractor context"><li title="J1 real intent buried in distractor context">J1</li></ol>
+          </div>
+          <p class="grid-key" aria-hidden="true"><span>A straightforward</span> · <span>B multi-step</span> · <span>C constraint preservation</span> · <span>D forbidden actions</span> · <span>E ambiguity</span> · <span>F missing resources</span> · <span>G idempotency</span> · <span>H compound workflows</span> · <span>I conflicting instructions</span> · <span>J distractor context</span></p>
+          <figcaption>
+            <span class="state-text" data-for="v1"><i class="swatch" aria-hidden="true"></i> Passed by an agent that does nothing: <strong>8 of 20</strong>, every one a “change nothing” case.</span>
+            <span class="state-text" data-for="v2" hidden><i class="swatch" aria-hidden="true"></i> After adding a reply check: <strong>0 of 20</strong>. GPT-4o still scores 17/20, GPT-4o-mini 19/20.</span>
+          </figcaption>
+          <p class="refs"><a class="ref" href="notes/null-agent-audit.html">Note</a></p>
+        </figure>
+
+        <ul class="entries">
+          <li class="entry">
+            <h3>Null agents in my benchmark</h3>
+            <p>I pointed six agents that can’t do anything at my own 20-case benchmark. They passed 8 cases, 40%, close to the 38% Zhu et al. found on τ-bench airline. A reply check that needs a case-specific fact closed all eight, and no real model’s verdict changed.</p>
+            <p class="figure-line">8/20 → 0/20 passable · GPT-4o 17/20, unchanged</p>
+            <p class="limits"><span>Limits</span> A 20-case pilot. The checks were written after reading the replies, so the fix is in-sample.</p>
+          </li>
+          <li class="entry">
+            <h3>Repeated-trial reliability</h3>
+            <p>Does every one of k tries succeed? pass^k (Yao et al., τ-bench), estimated per case without bias, with a bootstrap over cases rather than runs.</p>
+            <p class="figure-line">gpt-4o-mini: pass^8 = 95%, for $0.134</p>
+            <p class="limits"><span>Limits</span> No case was flaky, so the next probe needs harder cases.</p>
+            <p class="refs"><a class="ref" href="notes/null-agent-audit.html#pass-k">Note</a></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Personal -->
+    <div class="panel" role="tabpanel" id="panel-per" aria-labelledby="tab-per" tabindex="0">
+      <p class="scope">Made outside Birla AI Labs, on my own time.</p>
+      <div class="panel-grid">
+        <figure class="evidence" aria-labelledby="lint-title">
+          <h2 id="lint-title">MCPLint on two customer tools, before and after</h2>
+          <div class="lint">
+            <div class="lint-case">
+              <p class="lint-label">Before</p>
+              <dl>
+                <dt><code>get_customer</code></dt><dd>“Get a customer record by identifier.”</dd>
+                <dt><code>search_customers</code></dt><dd>“Search a customer record by identifier.”</dd>
+              </dl>
+              <p class="lint-out warn"><span>warning</span> ambiguous-tool-overlap · score 0.57, threshold 0.55 · shared parameter <code>customer_id</code></p>
+            </div>
+            <div class="lint-case">
+              <p class="lint-label">After</p>
+              <dl>
+                <dt><code>get_customer</code></dt><dd>“Return one customer record when the exact customer ID is already known.”</dd>
+                <dt><code>search_customers</code></dt><dd>“Find customers by partial name or email when the customer ID is not known. Returns a list.”</dd>
+              </dl>
+              <p class="lint-out ok"><span>clear</span> no ambiguity finding</p>
+            </div>
+          </div>
+          <figcaption>Real <code>mcplint scan</code> output, before and after rewriting two descriptions.</figcaption>
+          <p class="refs"><a class="ref ext" href="https://github.com/akashkokare2910/mcplint">Code</a></p>
+        </figure>
+
+        <ul class="entries">
+          <li class="entry">
+            <h3>MCPLint</h3>
+            <p>A linter for MCP servers. It flags tools a model is likely to confuse before any model runs: deterministic, no API key.</p>
+            <p class="figure-line">pip install mcplint-cli · v0.2.0 · 15 rules</p>
+            <p class="refs"><a class="ref ext" href="https://github.com/akashkokare2910/mcplint">Code</a><a class="ref ext" href="https://pypi.org/project/mcplint-cli/">PyPI</a></p>
+          </li>
+          <li class="entry">
+            <h3>EvalForge</h3>
+            <p>Release gates for tool-using agents. It checks what the agent did, not just what it said, and fails CI when a case that used to pass breaks. Live, with sign-in, workspaces and encrypted provider keys.</p>
+            <p class="refs"><a class="ref ext" href="https://evalforge-one.vercel.app">Live</a><a class="ref ext" href="https://evalforge-one.vercel.app/app">Showcase</a></p>
+          </li>
+          <li class="entry">
+            <h3>Open source</h3>
+            <p>A fix sent to LiteLLM, an LLM gateway: a compression bug in its streamed responses, with the matching docs change. Both are open, not yet merged.</p>
+            <p class="refs"><a class="ref ext" href="https://github.com/BerriAI/litellm/pull/35601">LiteLLM #35601</a><a class="ref ext" href="https://github.com/BerriAI/litellm-docs/pull/2111">LiteLLM docs #2111</a></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="log" id="log" aria-labelledby="log-title">
+    <div class="section-head">
+      <h2 id="log-title">Log</h2>
+      <p>What changed, newest first.</p>
+    </div>
+    <!-- log:start -->
+    <ol class="log-list">
+      <li><time datetime="2026-11-01">1 Nov 2026</time><span class="kind">Shipped</span><p>Future covariates for Chronos-2 and TabPFN-TS in the public forecasting API.</p></li>
+      <li><time datetime="2026-10-29">29 Oct 2026</time><span class="kind">Shipped</span><p>Yug 0.1.2 and tested capacity controls to production.</p></li>
+      <li><time datetime="2026-10-28">28 Oct 2026</time><span class="kind">Wrote</span><p><a href="notes/one-gpu.html">Eleven model families on one GPU, and the promise we didn’t make</a></p></li>
+      <li><time datetime="2026-10-06">6 Oct 2026</time><span class="kind">Opened</span><p><a href="https://github.com/BerriAI/litellm-docs/pull/2111">BerriAI/litellm-docs #2111</a>: Document LITELLM_ACCEPT_ENCODING</p></li>
+      <li><time datetime="2026-10-03">3 Oct 2026</time><span class="kind">Shipped</span><p>Made the lab’s public <a href="https://huggingface.co/birlaailabs/yug">Yug</a> the default model in our forecasting API and app.</p></li>
+      <li><time datetime="2026-09-30">30 Sep 2026</time><span class="kind">Measured</span><p>gpt-4o-mini, 8 trials per case: pass^8 = 95%, no flaky cases.</p></li>
+    </ol>
+    <details class="log-more">
+      <summary>Earlier entries (8)</summary>
+      <ol class="log-list">
+        <li><time datetime="2026-09-30">30 Sep 2026</time><span class="kind">Wrote</span><p><a href="notes/null-agent-audit.html">An agent that does nothing passed 40% of my benchmark</a></p></li>
+        <li><time datetime="2026-09-13">13 Sep 2026</time><span class="kind">Built</span><p>A paired-failure audit for agent fallbacks.</p></li>
+        <li><time datetime="2026-08-22">22 Aug 2026</time><span class="kind">Shipped</span><p><a href="https://evalforge-one.vercel.app">EvalForge</a> for real users: sign-in, workspaces, encrypted provider keys.</p></li>
+        <li><time datetime="2026-08-20">20 Aug 2026</time><span class="kind">Measured</span><p>A 20-case agent reliability pilot against gpt-4o-mini.</p></li>
+        <li><time datetime="2026-08-02">2 Aug 2026</time><span class="kind">Opened</span><p><a href="https://github.com/BerriAI/litellm/pull/35601">BerriAI/litellm #35601</a>: Stop advertising zstd for streamed responses</p></li>
+        <li><time datetime="2026-07-27">27 Jul 2026</time><span class="kind">Released</span><p><a href="https://pypi.org/project/mcplint-cli/0.2.0/">MCPLint 0.2.0</a> on PyPI.</p></li>
+        <li><time datetime="2026-07-26">26 Jul 2026</time><span class="kind">Released</span><p><a href="https://pypi.org/project/mcplint-cli/0.1.0/">MCPLint 0.1.0</a> on PyPI.</p></li>
+        <li><time datetime="2025-02">Feb 2025</time><span class="kind">Joined</span><p>Birla AI Labs, Office of Ananya Birla, as an AI engineer.</p></li>
+      </ol>
+    </details>
+    <!-- log:end -->
+  </section>
+
+  <section class="moments" id="photos" aria-labelledby="photos-title">
+    <div class="section-head">
+      <h2 id="photos-title">Photos</h2>
+      <p>Each one sits at its date on the axis.</p>
+    </div>
+    <div class="m-stage">
+      <div class="m-img">
+        <img src="assets/photos/abg-office-2025-12.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Aditya Birla Group office, December 2025.">
+        <i class="m-timer" aria-hidden="true"></i>
+      </div>
+      <div class="m-cap">
+        <p class="m-date">Dec 2025</p>
+        <p class="m-place">Mumbai</p>
+        <p class="m-text">Christmas at the Aditya Birla Group office.</p>
+        <p class="m-pos"><span class="m-count">1 of 5</span></p>
+      </div>
+    </div>
+    <div class="m-axis-wrap">
+      <div class="m-axis">
+        <svg class="m-leaders" aria-hidden="true"></svg>
+        <i class="m-line"></i><i class="m-future"></i>
+        <div class="m-today"><span>today</span></div>
+        <ol class="m-points" aria-label="Photos by date">
+          <li class="m-point" data-date="2025-12" data-place="Mumbai" data-text="Christmas at the Aditya Birla Group office." data-full="assets/photos/abg-office-2025-12.jpg"><button type="button"><img src="assets/photos/abg-office-2025-12-thumb.jpg" width="96" height="96" loading="lazy" alt="Aditya Birla Group office, December 2025"></button></li>
+          <li class="m-point" data-date="2026-02" data-place="New Delhi" data-text="India AI Impact Summit 2026." data-full="assets/photos/ai-summit-flags-2026-02.jpg"><button type="button"><img src="assets/photos/ai-summit-flags-2026-02-thumb.jpg" width="96" height="96" loading="lazy" alt="India AI Impact Summit, February 2026"></button></li>
+          <li class="m-point" data-date="2026-02" data-place="New Delhi" data-text="At the Meta booth on the summit’s expo floor." data-full="assets/photos/ai-summit-meta-2026-02.jpg"><button type="button"><img src="assets/photos/ai-summit-meta-2026-02-thumb.jpg" width="96" height="96" loading="lazy" alt="Meta booth at the summit, February 2026"></button></li>
+          <li class="m-point" data-date="2026-02" data-place="New Delhi" data-text="With my teammates at the summit." data-full="assets/photos/ai-summit-group-2026-02.jpg"><button type="button"><img src="assets/photos/ai-summit-group-2026-02-thumb.jpg" width="96" height="96" loading="lazy" alt="With teammates at the AI Impact Summit sign, February 2026"></button></li>
+          <li class="m-point" data-date="2026-02" data-place="New Delhi" data-text="India Gate, at night." data-full="assets/photos/india-gate-2026-02.jpg"><button type="button"><img src="assets/photos/india-gate-2026-02-thumb.jpg" width="96" height="96" loading="lazy" alt="India Gate at night, February 2026"></button></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="notes" id="notes" aria-labelledby="notes-title">
+    <div class="section-head">
+      <h2 id="notes-title">Notes</h2>
+      <p>Longer write-ups, with methods and limits.</p>
+    </div>
+    <ol>
+      <li><a href="notes/one-gpu.html">Eleven model families on one GPU, and the promise we didn’t make</a><time datetime="2026-10-28">28 Oct 2026</time></li>
+      <li><a href="notes/null-agent-audit.html">An agent that does nothing passed 40% of my benchmark</a><time datetime="2026-09-30">30 Sep 2026</time></li>
+    </ol>
+  </section>
+</main>
+
+<footer class="frame foot">
+  <p>Mumbai, India · <a href="mailto:akashkokare.in@gmail.com">akashkokare.in@gmail.com</a></p>
+  <p><!-- updated:start -->Updated <time datetime="2026-11-21">21 November 2026</time><!-- updated:end --></p>
+</footer>
+</body>
+</html>

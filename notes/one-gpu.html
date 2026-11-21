@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f3f4f1">
+<title>One GPU, eleven model families · Akash Kokare</title>
+<meta name="description" content="What a single GPU can serve across eleven forecasting model families, and the promise the measurements ruled out.">
+<link rel="canonical" href="https://akashkokare.com/notes/one-gpu.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eleven model families on one GPU, and the promise we didn’t make">
+<meta property="og:description" content="What a single GPU can serve across eleven forecasting model families, and the promise the measurements ruled out.">
+<meta property="og:url" content="https://akashkokare.com/notes/one-gpu.html">
+<meta property="og:image" content="https://akashkokare.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="date" content="2026-10-28">
+<link rel="icon" type="image/png" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../styles.css?v=14">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<p class="crumb frame"><a href="../">Akash Kokare</a><span>/</span><a href="../#notes">Notes</a></p>
+
+<main id="main" class="note">
+  <p class="note-meta">Engineering note · 28 October 2026 · Birla AI Labs</p>
+  <h1>Eleven model families on one GPU, and the promise we didn’t make</h1>
+  <p class="dek">Before setting customer limits for our forecasting API, I measured what one GPU can actually serve. The numbers ruled out the target we had in mind.</p>
+
+  <div class="note-body">
+    <h2>One GPU is one slot</h2>
+    <p>More workers don’t create more GPU. They queue for the same one, and each extra model process duplicates the weights in memory. Capacity planning starts from a single execution slot.</p>
+
+    <h2>The target, against the measurements</h2>
+    <p>The proposal was 50 maximum-size forecasts in under a minute. I ran the largest valid request for each model.</p>
+    <figure class="evidence">
+      <div class="bars">
+        <ol class="bar-list">
+          <li style="--v:15.02%"><span class="bar-name">Chronos-2 base <em>cold</em></span><span class="track"><i class="bar"></i><span class="val">18.5 s</span></span></li>
+          <li style="--v:17.41%"><span class="bar-name">TimesFM 200M <em>warm ×26</em></span><span class="track"><i class="bar"></i><span class="val">20.4 s</span></span></li>
+          <li style="--v:24.26%"><span class="bar-name">Yug <em>cold, uncached</em></span><span class="track"><i class="bar"></i><span class="val">27.0 s</span></span></li>
+          <li style="--v:35.69%"><span class="bar-name">Chronos large <em>cold</em></span><span class="track"><i class="bar"></i><span class="val">43.1 s</span></span></li>
+          <li class="over" style="--v:44.96%"><span class="bar-name">Chronos tiny <em>warm ×100</em></span><span class="track"><i class="bar"></i><span class="val">63.0 s</span></span></li>
+          <li class="over" style="--v:60.74%"><span class="bar-name">TimesFM 200M <em>cold</em></span><span class="track"><i class="bar"></i><span class="val">120 s</span></span></li>
+          <li class="over" style="--v:83.08%"><span class="bar-name">TabPFN-TS <em>cold</em></span><span class="track"><i class="bar"></i><span class="val">&gt; 300 s</span></span></li>
+        </ol>
+        <div class="bar-axis" aria-hidden="true"><span class="bar-name"></span><span class="track"><span style="--t:0%">10 s</span><span style="--t:26.86%">30</span><span class="ref-tick" style="--t:43.77%">60</span><span style="--t:60.7%">120</span><span style="--t:83.08%">300</span></span></div>
+      </div>
+      <figcaption>Largest valid request per model. Log scale; the line is the proposed 60-second target.</figcaption>
+    </figure>
+    <p>A single request could take two minutes, and one model timed out at five. <strong>We didn’t make the promise.</strong> Existing limits stay in place until there is evidence for a better number.</p>
+
+    <h2>The memory guard that cried wolf</h2>
+    <p>Admission control refuses a model load that would run out of memory. After a few loads it began refusing safe work. It was counting the kernel’s file cache, left behind by reading checkpoints, as memory in use. That cache is reclaimed on demand, and it was most of what the guard saw. The fix counts only memory that can’t be reclaimed.</p>
+
+    <h2>Loading Yug the same way every time</h2>
+    <p>One on-demand download of <a href="https://huggingface.co/birlaailabs/yug">Yug</a>, the lab’s model, failed in testing. So the checkpoint is now pinned to one version, verified by hash, and cached at deploy time. If the cache is missing, the service refuses to start instead of downloading mid-request.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Yug, after pinning and caching</th><th class="num">Time</th></tr></thead>
+        <tbody>
+          <tr><td>First request, model not loaded</td><td class="num">7.2 s</td></tr>
+          <tr><td>Next requests</td><td class="num">0.10 s</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Nearly all of the cold time is loading. What decides capacity is which models stay in memory, not how fast one forecast runs.</p>
+
+    <h2>Limits</h2>
+    <ul>
+      <li>Most rows are single runs, not tail latencies.</li>
+      <li>Measured in an isolated copy of production, not under real traffic. A new image or model version needs fresh numbers.</li>
+    </ul>
+  </div>
+
+  <div class="note-foot">
+    <a href="../">← Akash Kokare</a>
+    <a href="mailto:akashkokare.in@gmail.com">Questions? Email me</a>
+  </div>
+</main>
+</body>
+</html>

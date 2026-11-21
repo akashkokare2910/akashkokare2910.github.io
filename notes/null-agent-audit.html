@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f3f4f1">
+<title>An agent that does nothing · Akash Kokare</title>
+<meta name="description" content="A null-agent audit of my own 20-case agent benchmark: 8 cases passed with zero capability. The fix, and what it doesn't prove.">
+<link rel="canonical" href="https://akashkokare.com/notes/null-agent-audit.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="An agent that does nothing passed 40% of my benchmark">
+<meta property="og:description" content="A null-agent audit of my own 20-case agent benchmark: 8 cases passed with zero capability. The fix, and what it doesn't prove.">
+<meta property="og:url" content="https://akashkokare.com/notes/null-agent-audit.html">
+<meta property="og:image" content="https://akashkokare.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="date" content="2026-09-30">
+<link rel="icon" type="image/png" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../styles.css?v=14">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<p class="crumb frame"><a href="../">Akash Kokare</a><span>/</span><a href="../#notes">Notes</a></p>
+
+<main id="main" class="note">
+  <p class="note-meta">Research note · 30 September 2026 · EvalForge</p>
+  <h1>An agent that does nothing passed 40% of my benchmark</h1>
+  <p class="dek">A benchmark means something only if an agent with no ability scores zero. Mine didn’t.</p>
+
+  <div class="note-body">
+    <p>My benchmark has 20 customer-support cases for tool-using agents, graded on what the agent did, not just what it said. Others have found do-nothing agents passing 38% of τ-bench airline tasks (Zhu et al., NeurIPS 2025), so I ran the same check on mine.</p>
+
+    <h2>Method</h2>
+    <p>Six agents with no ability, scored by the real evaluators, with no model called. They do nothing, refuse, ask a generic question, or do one lookup and then say “Done.”, falsely claim success, or give a canned cautious reply.</p>
+
+    <h2>Finding</h2>
+    <p><strong>8 of 20 cases passed.</strong> All eight were cases where the right move is to change nothing, such as refunding an order that doesn’t exist. Doing nothing satisfies every state check, and nothing read the reply. So “order #9999 has been refunded” passed, as long as no refund was made.</p>
+
+    <h2>Fix</h2>
+    <p>A deterministic reply check: each case lists what the reply must mention and what it must not claim. My first version accepted generic phrases, and the canned-reply agent passed four cases with one sentence. The rule that worked: <strong>a required mention must be a case-specific fact</strong>, such as an order id, that only an agent that looked could know.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th class="num">v1</th><th class="num">v2</th></tr></thead>
+        <tbody>
+          <tr><td>Cases a do-nothing agent passes</td><td class="num">8/20</td><td class="num">0/20</td></tr>
+          <tr><td>GPT-4o</td><td class="num">17/20</td><td class="num">17/20</td></tr>
+          <tr><td>GPT-4o-mini</td><td class="num">19/20</td><td class="num">19/20</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>No real model’s verdict changed. Every failure the new check catches was a false claim.</p>
+
+    <h2 id="pass-k">Does it pass every time?</h2>
+    <p>pass^k is the chance that all k tries of a case succeed (Yao et al., τ-bench). I estimate it per case without bias, C(c,k)/C(n,k), and bootstrap over cases rather than runs. gpt-4o-mini, 8 tries per case, cost $0.134: <strong>pass^8 = 95%</strong>, the same as pass^1. No case was flaky, so a harder probe is needed before consistency shows up.</p>
+
+    <h2>Limits</h2>
+    <ul>
+      <li>The checks were written after reading these replies, so this is in-sample.</li>
+      <li>Patterns can be gamed by an agent that reads the case. These six agents don’t.</li>
+      <li>Twenty cases is a pilot. It says nothing about GPT-4o in general.</li>
+    </ul>
+  </div>
+
+  <div class="note-foot">
+    <a href="../">← Akash Kokare</a>
+    <a href="mailto:akashkokare.in@gmail.com">Counterexample? Email me</a>
+  </div>
+</main>
+</body>
+</html>

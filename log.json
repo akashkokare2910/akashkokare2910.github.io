@@ -1,0 +1,47 @@
+{
+  "built": "2026-11-21T04:53:53.847Z",
+  "sources": {
+    "github": [
+      {
+        "date": "2026-10-06",
+        "kind": "Opened",
+        "html": "<a href=\"https://github.com/BerriAI/litellm-docs/pull/2111\">BerriAI/litellm-docs #2111</a>: Document LITELLM_ACCEPT_ENCODING",
+        "source": "github"
+      },
+      {
+        "date": "2026-08-02",
+        "kind": "Opened",
+        "html": "<a href=\"https://github.com/BerriAI/litellm/pull/35601\">BerriAI/litellm #35601</a>: Stop advertising zstd for streamed responses",
+        "source": "github"
+      }
+    ],
+    "pypi": [
+      {
+        "date": "2026-07-26",
+        "kind": "Released",
+        "html": "<a href=\"https://pypi.org/project/mcplint-cli/0.1.0/\">MCPLint 0.1.0</a> on PyPI.",
+        "source": "pypi"
+      },
+      {
+        "date": "2026-07-27",
+        "kind": "Released",
+        "html": "<a href=\"https://pypi.org/project/mcplint-cli/0.2.0/\">MCPLint 0.2.0</a> on PyPI.",
+        "source": "pypi"
+      }
+    ],
+    "notes": [
+      {
+        "date": "2026-09-30",
+        "kind": "Wrote",
+        "html": "<a href=\"notes/null-agent-audit.html\">An agent that does nothing passed 40% of my benchmark</a>",
+        "source": "notes"
+      },
+      {
+        "date": "2026-10-28",
+        "kind": "Wrote",
+        "html": "<a href=\"notes/one-gpu.html\">Eleven model families on one GPU, and the promise we didn’t make</a>",
+        "source": "notes"
+      }
+    ]
+  }
+}
